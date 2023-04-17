@@ -1,11 +1,11 @@
 import { StorageEnum, StoreEnum } from '@/config/enums'
-import { clsStorage } from '@/utils/storage'
 import { defineStore } from 'pinia'
+import { useRouteStore } from './route.store'
 
 interface IUserState {
   userInfo: any
   token: string
-  roles: string[]
+  roles: string
 
   [key: string]: any
 }
@@ -14,7 +14,7 @@ export const useUserStore = defineStore(StoreEnum.User, {
   state: (): IUserState => ({
     userInfo: {},
     token: '',
-    roles: []
+    roles: ''
   }),
   actions: {
     login({ username, password }: { username: string; password: string }): Promise<any> {
@@ -26,8 +26,11 @@ export const useUserStore = defineStore(StoreEnum.User, {
             gender: 1
           }
           this.token = '123456'
-          this.roles = ['admin']
-          clsStorage.set(StorageEnum.User, this.userInfo, 1)
+          this.roles = 'admin'
+
+          const routeStore = useRouteStore()
+          routeStore.generateRoutes('admin')
+
           resolve(true)
         } else {
           reject()
@@ -35,10 +38,10 @@ export const useUserStore = defineStore(StoreEnum.User, {
       })
     },
     logout(): Promise<any> {
-      return new Promise((resolve, reject) => {
+      return new Promise(resolve => {
         this.userInfo = {}
         this.token = ''
-        this.roles = []
+        this.roles = ''
         resolve(true)
       })
     }
