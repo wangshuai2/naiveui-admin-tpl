@@ -1,13 +1,14 @@
 <template>
   <n-layout-sider
     bordered
-    show-trigger
     collapse-mode="width"
     :collapsed="collapse"
     :collapsed-width="layoutConfig.collapseWidth"
     :width="layoutConfig.expandWidth"
     :native-scrollbar="false"
     :on-update:collapsed="toggleCollapsed"
+    class="h-screen"
+    show-trigger="bar"
   >
     <layout-menu :collapsed="collapse" />
   </n-layout-sider>
