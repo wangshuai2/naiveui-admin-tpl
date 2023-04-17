@@ -1,4 +1,5 @@
 export enum StorageEnum {
   User = 'USER_INFO',
-  AUTH_TOKEN = 'AUTHORIZATION'
+  AUTH_TOKEN = 'AUTHORIZATION',
+  Roles = 'ROLES'
 }
