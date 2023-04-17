@@ -1,5 +1,12 @@
 import type { RouteRecordRaw } from 'vue-router'
-import { AlertTwotone, AlipayOutlined, AliyunOutlined, AndroidOutlined } from '@vicons/antd'
+import {
+  AlertTwotone,
+  AlipayOutlined,
+  AliyunOutlined,
+  AndroidOutlined,
+  AmazonOutlined
+} from '@vicons/antd'
+import { shallowRef } from 'vue'
 
 export const PERMISSION_ROUTES: RouteRecordRaw[] = [
   {
@@ -8,7 +15,7 @@ export const PERMISSION_ROUTES: RouteRecordRaw[] = [
     component: () => import('@/views/Permission/index.vue'),
     meta: {
       title: '权限管理',
-      icon: AlertTwotone
+      icon: shallowRef(AlertTwotone)
     },
     children: [
       {
@@ -17,7 +24,7 @@ export const PERMISSION_ROUTES: RouteRecordRaw[] = [
         component: () => import('@/views/Permission/Role/index.vue'),
         meta: {
           title: '角色管理',
-          icon: AlipayOutlined
+          icon: shallowRef(AlipayOutlined)
         }
       },
       {
@@ -34,7 +41,7 @@ export const PERMISSION_ROUTES: RouteRecordRaw[] = [
         component: () => import('@/views/Permission/index.vue'),
         meta: {
           title: '测试子菜单',
-          icon: AliyunOutlined
+          icon: shallowRef(AliyunOutlined)
         },
         children: [
           {
@@ -51,7 +58,8 @@ export const PERMISSION_ROUTES: RouteRecordRaw[] = [
             component: () => import('@/views/Permission/index.vue'),
             meta: {
               title: '测试子菜单2',
-              hidden: true
+              hidden: true,
+              icon: shallowRef(AmazonOutlined)
             }
           },
           {
@@ -72,7 +80,7 @@ export const PERMISSION_ROUTES: RouteRecordRaw[] = [
     component: () => import('@/views/Test/index.vue'),
     meta: {
       title: '测试页面1',
-      icon: AndroidOutlined
+      icon: shallowRef(AndroidOutlined)
     }
   },
   {
