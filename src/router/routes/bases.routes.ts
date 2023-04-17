@@ -3,8 +3,8 @@ import type { RouteRecordRaw } from 'vue-router'
 export const BASE_ROUTES: RouteRecordRaw[] = [
   {
     path: '/',
-    name: 'Home',
-    component: () => import('@/views/HomeView.vue'),
+    name: 'Root',
+    component: () => import('@/layout/index.vue'),
     meta: {
       title: '首页'
     }
