@@ -1,15 +1,20 @@
+import { useCreatePinia } from './stores/index'
 import { createApp } from 'vue'
-import { createPinia } from 'pinia'
 
 import App from './App.vue'
-import router from './router'
+import { setupRouter } from './router'
 
 import 'normalize.css'
 import 'virtual:uno.css'
 
-const app = createApp(App)
+async function setupApp() {
+  const app = createApp(App)
 
-app.use(createPinia())
-app.use(router)
+  useCreatePinia(app)
 
-app.mount('#app')
+  await setupRouter(app)
+
+  app.mount('#app')
+}
+
+setupApp()
