@@ -8,18 +8,20 @@
       :width="240"
       :native-scrollbar="false"
     >
-      <n-menu />
+      <layout-menu />
     </n-layout-sider>
-    <n-header>header</n-header>
+    <n-layout-header>header</n-layout-header>
     <n-layout-content>
       <n-breadcrumb />
       <h1>n-layout-content</h1>
       <router-view />
     </n-layout-content>
-    <n-footer>footer</n-footer>
+    <n-layout-footer>footer</n-layout-footer>
   </n-layout>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import LayoutMenu from '@/layout/LayoutMenu/index.vue'
+</script>
 
 <style scoped lang="scss"></style>
