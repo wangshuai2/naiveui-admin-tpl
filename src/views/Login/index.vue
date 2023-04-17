@@ -21,19 +21,28 @@
 <script setup lang="ts">
 import { useUserStore } from '@/stores/modules/user.store'
 import { reactive, ref } from 'vue'
+import { useRouter } from 'vue-router'
 
+// 用户store
 const userStore = useUserStore()
 
+// router
+const router = useRouter()
+
+// 登录表单ref
 const loginRef = ref(null)
+// 登录表单数据
 const loginForm = reactive({
   username: 'wang',
   password: '123456'
 })
 
+// 点击了登录按钮
 const handleLoginBtn = () => {
   console.log(loginForm)
   userStore.login(loginForm).then(() => {
     console.log('登录成功')
+    router.replace('/')
   })
 }
 </script>
