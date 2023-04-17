@@ -1,4 +1,5 @@
 import { StoreEnum } from '@/config/enums'
+import { clsStorage } from '@/utils/storage'
 import { defineStore } from 'pinia'
 
 interface ISystemState {
@@ -7,11 +8,12 @@ interface ISystemState {
 
 export const useSystemStore = defineStore(StoreEnum.System, {
   state: (): ISystemState => ({
-    collapse: false
+    collapse: !!clsStorage.get('COLLAPSED')
   }),
   actions: {
     toggleCollapse(): void {
       this.collapse = !this.collapse
+      clsStorage.set('COLLAPSED', this.collapse)
     }
   }
 })

@@ -1,15 +1,6 @@
 <template>
   <n-layout has-sider>
-    <n-layout-sider
-      bordered
-      show-trigger
-      collapse-mode="width"
-      :collapsed-width="64"
-      :width="240"
-      :native-scrollbar="false"
-    >
-      <layout-menu />
-    </n-layout-sider>
+    <layout-aside />
     <n-layout>
       <n-layout-header>header</n-layout-header>
       <n-layout-content>
@@ -22,7 +13,7 @@
 </template>
 
 <script setup lang="ts">
-import LayoutMenu from '@/layout/LayoutMenu/index.vue'
+import LayoutAside from '@/layout/LayoutAside/index.vue'
 </script>
 
 <style scoped lang="scss"></style>

@@ -1,5 +1,13 @@
 <template>
-  <n-menu :options="menuOptions" :value="activeMenu" accordion></n-menu>
+  <n-menu
+    :options="menuOptions"
+    :value="activeMenu"
+    :collapsed="props.collapsed"
+    accordion
+    :collapsed-width="layoutConfig.collapseWidth"
+    :collapsed-icon-size="layoutConfig.collapseIconSize"
+    :icon-size="layoutConfig.expandIconSize"
+  />
 </template>
 
 <script setup lang="ts">
@@ -10,6 +18,11 @@ import { type Component, h, computed } from 'vue'
 import type { RouteLocationNormalizedLoaded } from 'vue-router'
 import { useRoute } from 'vue-router'
 import { RouterLink } from 'vue-router'
+import { layoutConfig } from '@/config/constants/layout.constants'
+
+const props = defineProps<{
+  collapsed: boolean
+}>()
 
 /**
  * @description: 生成菜单
